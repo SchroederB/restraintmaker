@@ -1,0 +1,8 @@
+test_pythonTests:
+    image: continuumio/anaconda3:latest
+    stage: test
+    script:
+        PYTHONPATH=${PYTHONPATH}:${PWD};
+        echo "$PWD";
+        conda install -c rdkit rdkit;
+        python ./test/run_all_tests.py;
